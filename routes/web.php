@@ -21,11 +21,15 @@ Route::get('/productos', 'ProductsController@index');
 // Productos agregados al carrito
 Route::get('/carrito', 'CartController@index');
 
+// Confirmar la compra
+Route::post('/carrito/confirmar', 'CartController@confirm');
+
 // Agregar productos al carrito
 Route::post('/carrito/{id}', 'PreferencesController@store');
 
-// Confirmar la compra
-Route::post('/carrito/confirmar', 'PreferencesController@confirm');
-
 // Notificacion de Mercado Pago
 Route::any('/mercadopago', 'MercadoPagoController@store');
+
+Route::get('/mp/success', 'MercadoPagoController@success');
+Route::get('/mp/failure', 'MercadoPagoController@failure');
+Route::get('/mp/pending', 'MercadoPagoController@pending');

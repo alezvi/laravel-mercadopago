@@ -22,6 +22,13 @@
             </table>
 
             <a href="{{ url('/productos') }}">Seguir Comprando</a>
+
+            <hr>
+
+            <form action="{{ url('/carrito/confirmar') }}" method="post">
+                @csrf
+                <button class="btn btn-primary">Comprar</button>
+            </form>
         </div>
     </div>
 @endsection
